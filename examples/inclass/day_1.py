@@ -125,15 +125,101 @@ print(f"{b = :.0f}, {b = :.1f}, {b = :.2f}")
 
 print("Python is a \N{snake}")
 
+#%% List join, append and extend
+alist = [1, 2, 3]
+print(f"{alist = }")
 
+alist = alist + [4]  # can only join with another list
+print(f"{alist = }")
 
+alist += [5]  # same as above (alist = alist + [5])
+print(f"{alist = }")
 
+alist.append(6)  # Only can append one item at a time
+print(f"{alist = }")
 
+alist.extend([7, 8])  # similar to alist = alist + [7, 8]
+print(f"{alist = }")
 
+print(f"{len(alist)=}")  # use len() function to check the number of items
 
+#%% Sorting a list
+blist = [3, 1, 4, 2, 6, 5, 0]
+clist = sorted(blist)
+dlist = sorted(blist, reverse=True)
+print(f"{blist=}, {clist=}, {dlist=}")
 
+elist = blist.sort()
+print(f"{blist=}, {elist=}")
 
+#%% String to list and vice-versa
+astring = 'Testing 123'
+alist = list(astring)
+print(f"{astring = }")
+print(f"{alist = }")
 
+alist[1] = 'a'
+print(f"{alist = }")
 
+bstring = ''.join(alist)
+print(f"{bstring = }")
 
+cstring = '--'.join(alist)
+print(f"{cstring = }")
 
+#%% List methods
+alist = [1, 2.3, 'abc', [3, 7.8], 'xyz', 101, 1]
+
+print(f"{alist.count(1)=}")
+
+print(f"{alist.index('abc')=}")
+
+print(f"{alist.index(1)=}")  # only return the first occurance
+
+alist.remove(1)
+print(f"{alist=}")  # only remove the first occurance
+
+alist.insert(2, "Hello")
+print(f"{alist=}")
+
+a = alist.pop(4)
+print(f"{a=}")
+print(f"{alist=}")
+
+alist.clear()
+print(f"{alist=}")
+
+blist = [1, 2.3, 'abc', [3, 7.8], 'xyz', 101, 1]
+print(f"{blist[3][1]=}")
+
+#%% Dictionary methods
+adict = dict(a=1, b=2.5, c='abc')
+# print(f"{adict['d']=}")  # KeyError as the key 'd' cannot be found
+print(f"{adict.get('d', None)=}")
+
+print(f"{adict.setdefault('d', 4)}")
+print(f"{adict = }")
+
+#%% Joining 2 dictionaries
+d1 = dict(a=1, b=2, x=0)
+d2 = dict(x=3, y=4, z=5)
+
+# Method 1
+d3 = d1.copy()
+d3.update(d2)
+print(f"{d3 = }")
+
+# Method 2
+d4  = {**d1, **d2}
+print(f"{d4 = }")
+
+# Method 3 - Using the union operator
+d5 = d1 | d2
+print(f"{d5 = }")
+
+#%% Set operations
+alist = [1, 2, 1, 3, 4, 1, 5, 2, 0, 2.5, 'abc']
+aset = set(alist)
+blist = list(aset)
+print(f"{aset = }")
+print(f"{blist = }")
