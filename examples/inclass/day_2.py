@@ -129,6 +129,46 @@ numbers = [randint(1, 100) for _ in range(100)]
 
 print(f"There are {sum([1 if i%2 else 0 for i in numbers])} odd numbers")
 
+#%% Dictionary comprehension example
+
+fruit_prices = dict(apple=1.5, orange=2.5, durian=15, mango=8)
+
+# Create a dictionary with discounted price (10%) 
+
+# Use a loop
+discounted_prices1 = {}
+for k in fruit_prices:
+    discounted_prices1[k] = 0.9 * fruit_prices[k]
+print(f"{discounted_prices1 = }")
+
+# Use dictionary comprehension
+discounted_prices2 = {k: 0.9 * fruit_prices[k] for k in fruit_prices}
+print(f"{discounted_prices2 = }")
+
+#%% Using Pickle to store dictionary into file (serialize)
+
+from pickle import dump
+data = {}
+ans = 'y'
+while ans in ('y', 'Y'):
+    name = input("Enter name: ")
+    age = input("Enter age: ")
+    data[name] = age
+    ans = input("Do you want to enter another data (y/n)?")
+
+print(f"{data = }")
+
+with open("name_age.pkl", "wb") as f:
+    dump(data, f)
+
+#%% Using Pickle to load dictionary from file (deserialize)
+
+from pickle import load
+
+with open("name_age.pkl", "rb") as f:
+    mydata = load(f)
+print(f"{mydata = }")
+
 
 
 
