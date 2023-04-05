@@ -63,6 +63,44 @@ print(f"Biggest paper: {max(papers)}")
 
 print(f"Biggest paper: {max(papers, key=lambda x: -int(x[1]))}")
 
+#%% map() function
+
+words = ['apple', 'bell', 'cat', 'dog', 'egg', 'fish']
+
+# Use for loop
+r1 = []
+for w in words:
+    r1.append(w[::-1])
+print(f"{r1 = }")
+
+# Use list comprehension
+r2 = [w[::-1] for w in words]
+print(f"{r2 = }")
+
+# Use map() function
+r3 = list(map(lambda w: w[::-1], words))
+print(f"{r3 = }")
+
+#%% filter function
+# Select only the words with 3 characters
+words = ['apple', 'bell', 'cat', 'dog', 'egg', 'fish']
+
+# Use for loop
+t1 = []
+for w in words:
+    if len(w) ==  3:
+        t1.append(w)
+print(f"{t1 = }")
+
+# Use list comprehension
+t2 = [w for w in words if len(w) == 3]
+print(f"{t2 = }")
+
+# Use filter() function
+t3 = list(filter(lambda w: len(w) == 3, words))
+print(f"{t3 = }")
+
+
 
 
 
