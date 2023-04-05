@@ -100,7 +100,32 @@ print(f"{t2 = }")
 t3 = list(filter(lambda w: len(w) == 3, words))
 print(f"{t3 = }")
 
+#%% Object oriented programming
 
+class Square:
+    def __init__(self, length):
+        self.length = length
+    def __str__(self):
+        return f"This is a square with length of {self.length}"
+    def area(self):
+        return self.length * self.length
+    def perimeter(self):
+        return self.length * 4
+    def __eq__(self, other):
+        return self.length == other.length
+    def __add__(self, other):
+        return self.area() + other.area()
+    def __repr__(self):
+        return f"Square with length {self.length}"
 
+sqr1 = Square(5)
+print(sqr1)
+print(f"Area: {sqr1.area()}")
+print(f"Perimeter: {sqr1.perimeter()}")
+
+sqr2 = Square(6)
+print("Same size" if sqr1 == sqr2 else "Not the same size")
+
+print(sqr1 + sqr2)
 
 
